@@ -12,12 +12,15 @@ import {
   Music,
   Tent,
   CheckCircle,
-  MessageCircle,imag
+  MessageCircle,
   Award,
   Clock,
   Shield,
   Heart,
   ChevronDown,
+
+  Info,
+  Settings,
 } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
