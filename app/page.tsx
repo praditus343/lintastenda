@@ -106,7 +106,7 @@ export default function LintasTendaLanding() {
             <div className="relative">
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <Image
-                  src="/placeholder.svg?height=600&width=800"
+                  src="/1.png?height=600&width=800"
                   alt="Acara pernikahan dengan tenda dan dekorasi elegan"
                   width={800}
                   height={600}
@@ -301,49 +301,87 @@ export default function LintasTendaLanding() {
         </div>
       </section>
 
-      {/* Gallery Section */}
-      <section id="galeri" className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="text-center space-y-4 mb-12">
-            <Badge className="bg-purple-100 text-purple-800">Portfolio Kami</Badge>
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900">Galeri Acara yang Telah Kami Tangani</h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Lihat dokumentasi acara-acara spektakuler yang telah kami wujudkan
-            </p>
-          </div>
+{/* Gallery Section */}
+<section id="galeri" className="py-16 bg-gray-50">
+  <div className="container mx-auto px-4">
+    <div className="text-center space-y-4 mb-12">
+      <Badge className="bg-purple-100 text-purple-800">Portfolio Kami</Badge>
+      <h2 className="text-3xl lg:text-4xl font-bold text-gray-900">Galeri Acara yang Telah Kami Tangani</h2>
+      <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+        Lihat dokumentasi acara-acara spektakuler yang telah kami wujudkan
+      </p>
+    </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[1, 2, 3, 4, 5, 6].map((item) => (
-              <Card
-                key={item}
-                className="group overflow-hidden border-0 shadow-lg hover:shadow-xl transition-all duration-300"
-              >
-                <div className="relative overflow-hidden">
-                  <Image
-                    src={`/placeholder.svg?height=300&width=400`}
-                    alt={`Acara ${item}`}
-                    width={400}
-                    height={300}
-                    className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <div className="absolute bottom-4 left-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <h3 className="font-semibold">Pernikahan Elegant</h3>
-                    <p className="text-sm opacity-90">Jakarta, 2024</p>
-                  </div>
-                </div>
-              </Card>
-            ))}
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {[
+        {
+          id: 1,
+          image: "/3.png",
+          title: "Pernikahan Elegant",
+          location: "Jakarta, 2024"
+        },
+        {
+          id: 2,
+          image: "/4.png",
+          title: "Corporate Gathering",
+          location: "Bandung, 2024"
+        },
+        {
+          id: 3,
+          image: "/5.png",
+          title: "Sweet Seventeen",
+          location: "Surabaya, 2023"
+        },
+        {
+          id: 4,
+          image: "/6.png",
+          title: "Garden Wedding",
+          location: "Bali, 2023"
+        },
+        {
+          id: 5,
+          image: "/7.png",
+          title: "Acara Tunangan",
+          location: "Yogyakarta, 2024"
+        },
+        {
+          id: 6,
+          image: "/8.png",
+          title: "Seminar Nasional",
+          location: "Semarang, 2023"
+        }
+      ].map((item) => (
+        <Card
+          key={item.id}
+          className="group overflow-hidden border-0 shadow-lg hover:shadow-xl transition-all duration-300"
+        >
+          <div className="relative overflow-hidden aspect-[4/3]">
+            <Image
+              src={item.image}
+              alt={`Acara ${item.title}`}
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              className="object-cover transition-transform duration-300 group-hover:scale-110"
+              priority={item.id <= 3}
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <div className="absolute bottom-4 left-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <h3 className="font-semibold">{item.title}</h3>
+              <p className="text-sm opacity-90">{item.location}</p>
+            </div>
           </div>
+        </Card>
+      ))}
+    </div>
 
-          <div className="text-center mt-12">
-            <Button size="lg" variant="outline" className="text-lg px-8 py-4 bg-transparent">
-              Lihat Semua Galeri
-              <ChevronDown className="h-5 w-5 ml-2" />
-            </Button>
-          </div>
-        </div>
-      </section>
+    <div className="text-center mt-12">
+      <Button size="lg" variant="outline" className="text-lg px-8 py-4 bg-transparent">
+        Lihat Semua Galeri
+        <ChevronDown className="h-5 w-5 ml-2" />
+      </Button>
+    </div>
+  </div>
+</section>
 
       {/* Special Offer */}
       <section className="py-16 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
