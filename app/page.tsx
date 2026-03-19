@@ -26,8 +26,27 @@ import Image from "next/image"
 import Link from "next/link"
 
 export default function LintasTendaLanding() {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    name: 'Lintas Tenda',
+    image: 'https://www.lintastenda.site/1.png',
+    description: 'Layanan penyewaan tenda, dekorasi pernikahan, sound system, dan party entertainment terpercaya.',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Jakarta',
+      addressCountry: 'ID',
+    },
+    telephone: '+6281234567890',
+    url: 'https://www.lintastenda.site',
+  }
+
   return (
     <div className="min-h-screen bg-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Header */}
       <header className="fixed top-0 w-full bg-white/95 backdrop-blur-sm border-b border-gray-100 z-50">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
@@ -68,7 +87,7 @@ export default function LintasTendaLanding() {
               <div className="space-y-4">
                 <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 leading-tight">
                   Wujudkan Acara
-                  <span className="text-blue-600"> Impian</span> Anda
+                  <span className="text-blue-600"> Impian</span> Anda Bersama Lintas Tenda
                 </h1>
                 <p className="text-xl text-gray-600 leading-relaxed">
                   Layanan lengkap penyewaan tenda, dekorasi, sound system, dan dokumentasi profesional untuk membuat
